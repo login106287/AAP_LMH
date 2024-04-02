@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1711969530 source:d:\code\c++\aap_lmh\eratosthenes\main.cpp
+	<iostream>
+	<vector>
+	<cmath>
+
