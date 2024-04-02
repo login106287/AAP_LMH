@@ -7,24 +7,23 @@ using namespace std;
 bool check(string s, string t) {
     if (s.size()!=t.size()) return true;
 
-    unordered_map<char, char> s_t;
-    unordered_map<char, char> t_s;
+    unordered_map<char, char> st, ts;
 
-    for (int i=0; i<s.size(); i++) {
+    FOR(i,0,s.size()) {
         char char_s = s[i];
         char char_t = t[i];
 
-        if (s_t.find(char_s)==s_t.end()) {
-            s_t[char_s] = char_t;
+        if (st.find(char_s)==st.end()) {
+            st[char_s] = char_t;
         }
         else {
-            if (s_t[char_s]!=char_t) return false;
+            if (st[char_s]!=char_t) return false;
         }
-        if (t_s.find(char_t)==t_s.end()) {
-            t_s[char_t] = char_s;
+        if (ts.find(char_t)==ts.end()) {
+            ts[char_t] = char_s;
         }
         else {
-            if (t_s[char_t]!=char_s) return false;
+            if (ts[char_t]!=char_s) return false;
         }
     }
 
