@@ -1,41 +1,23 @@
-#include <iostream>
-#include <vector>
-#include <cmath>
-
+#include <bits/stdc++.h>
 using namespace std;
-
-void sieveOfEratosthenes(vector<bool> &a, long long n) {
-    // Khởi tạo tất cả các phần tử của mảng là true
-    for (long long i = 0; i <= n; ++i) {
-        a[i] = true;
-    }
-
-    // Đánh dấu các số không phải là số nguyên tố
-    a[0] = a[1] = false;
-    long long sqrtN = sqrt(n);
-    for (long long i = 2; i <= sqrtN; ++i) {
-        if (a[i]) {
-            for (long long j = i * i; j <= n; j += i) {
-                a[j] = false;
-            }
-        }
-    }
+#define ll long long
+#define MAX 100000000
+#define SQ 10000
+//code se duoc giai thich ben duoi
+#define check(n) (prime[n>>6]&(1<<((n&63)>>1)))
+#define set(n) prime[n>>6]|=(1<<((n&63)>>1))
+ll prime[MAX>>6];
+ll eratosthene(){
+	for(ll i=3;i<=SQ;i+=2){
+		if (!check(i)){
+			ll tmp = 2*i;
+			for(ll j=i*i;j<=MAX;j+=tmp){
+				set(j);}
+		}
+	} return 0;
 }
+int main(){
+	eratosthene();
 
-int main() {
-    long long n = 100000000000; // Số nguyên tố cần kiểm tra tới
-    vector<bool> primes(n + 1);
-
-    sieveOfEratosthenes(primes, n);
-
-    // In ra kết quả
-    cout << "Cac so nguyen to tu 0 den " << n << " la:\n";
-    for (long long i = 0; i <= n; ++i) {
-        if (primes[i]) {
-            cout << i << " ";
-        }
-    }
-    cout << endl;
-
-    return 0;
+	return 0;
 }
