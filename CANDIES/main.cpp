@@ -31,7 +31,7 @@ int main()
         v+=x;
     }
 
-    cout << counts << endl << v/3 <<endl;
+    cout << counts << "\n"<< v/3;;
 
     return 0;
 }
