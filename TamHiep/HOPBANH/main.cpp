@@ -15,13 +15,8 @@ int main()
     int a,b,c,d,s;
     cin >> a >> b >> c >> d;
 
-    s=a*b+c*d;
-
-    double q = sqrt(s);
-
-
-    if (q==int(q)) cout << q*q << endl;
-    else cout << int(q+1)*int(q+1);
+    result=max((min(a,b)+min(c,d)),max(a,b,c,d));
+    cout << result*result;
 
 
     return 0;
