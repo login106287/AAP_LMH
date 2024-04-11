@@ -31,6 +31,7 @@ int main()
                 h--;
             }
         }
+        if (h<0) break;
     }
 
     FOR(i,0,N,1) {
