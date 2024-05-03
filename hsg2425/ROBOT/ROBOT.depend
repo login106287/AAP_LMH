@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1714716345 source:d:\code\c++\aap_lmh\hsg2425\robot\main.cpp
+	<iostream>
+	<vector>
+	<string>
+
