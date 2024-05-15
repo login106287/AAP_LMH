@@ -1,25 +1,20 @@
 #include <bits/stdc++.h>
-#define vi vector<ll>
-#define vb vector<bool>
-#define pii pair<ll, ll>
-#define FOR(i,a,b,c) for (int i=(a),_b=(b);i<b;i+c)
-#define fi first
-#define se second
+#define ll long long
+#define FOR(i,a,b,c) for (ll i=a; i<b; i+=c)
+#define endl "\n"
 
 using namespace std;
 
 int main()
 {
-    cin.tie(0)->sync_with_stdio(false);
-
-    int n,a,b,c,d,total=0;
+    int n,a,b,c,d,s=0;
     cin >> n >> a >> b >> c >> d;
     FOR(i,1,n+1,1) {
-        if (i%a==0&&i%b==0) total+=max(c,d);
-        else if (i%a==0) total+=c;
-        else if (i%b==0) total+=d;
+        if (i%a==0&&i%b==0) s+=max(c,d);
+        else if (i%a==0) s+=c;
+        else if (i%b==0) s+=d;
     }
-    cout << total  << endl;
+    cout << s << endl;
 
     return 0;
 }
