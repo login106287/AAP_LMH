@@ -8,6 +8,22 @@
 #define endl "\n"
 using namespace std;
 
+string add(string s1, string s2) {
+    while (s1.size()>s2.size()) s2='0'+s2;
+    while (s2.size()>s1.size()) s1='0'+s1;
+    int x,y,s=0,nho=0,siz=s1.size();
+    string str="";
+    FOD(i,siz-1,-1,1) {
+        x=int(s1[i]-48);
+        y=int(s2[i]-48);
+        s=x+y+nho;
+        nho=s/10;
+        str=char((s%10)+48)+str;
+    }
+    if (nho>0) str='1' +str;
+    return str;
+}
+
 string newString(string s) {
     ll n = s.size();
     FOD(i,n-1,-1,1) {
@@ -17,9 +33,10 @@ string newString(string s) {
 }
 
 void solve(string s, ll l, ll r) {
-    ll n = s.size(), counts=0;
-    FOR(i,l,r+1,1) {
-        counts += s[i]-'0';
+    ll n = s.size();
+    string counts="0";
+    FOR(i,l-1,r,1) {
+        counts=add(counts,s[i]); // can sua kieu du lieu s[i] thanh string
     }
     cout << counts << endl;
 }
@@ -31,15 +48,17 @@ int main()
     ll l,r;
     cin >> a >> l >> r;
 
-    string new_s = newString(a);
-    string new_ss = new_s;
+    if (a.size()==r) solve(a,l,r);
 
-    while (new_ss.size()<r) {
-        new_ss+=new_s;
+    else {
+        string new_s = newString(a);
+        string new_ss = new_s;
+
+        while (new_ss.size()<r) {
+            new_ss+=new_s;
+        }
+
+        solve(new_ss,l,r);
     }
-
-    cout << new_s << endl << new_ss << endl;
-    solve(new_ss,l,r);
-
     return 0;
 }
